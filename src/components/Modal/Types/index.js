@@ -1,17 +1,19 @@
-import share from './Share.svelte';
-import qrcode from './QRCode.svelte';
-import settings from './Settings.svelte';
-import confirm from './Confirm.svelte';
-import prompt from './Prompt.svelte';
-import welcome from './Welcome.svelte';
-import gameover from './GameOver.svelte';
+import Welcome from './Welcome.svelte';
+import GameOver from './GameOver.svelte';
+import Confirm from './Confirm.svelte';
+import Prompt from './Prompt.svelte';
+import Share from './Share.svelte';
+import Settings from './Settings.svelte';
+import Info from './Info.svelte';
+import Hint from './Hint.svelte';
 
 export default {
-	share,
-	qrcode,
-	settings,
-	confirm,
-	prompt,
-	welcome,
-	gameover
-}
+	welcome: Welcome,
+	gameover: GameOver,
+	confirm: Confirm,
+	prompt: Prompt,
+	share: Share,
+	settings: Settings,
+	info: Info,
+	hint: Hint
+};
