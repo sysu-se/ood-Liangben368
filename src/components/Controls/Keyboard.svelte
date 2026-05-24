@@ -15,13 +15,13 @@
 				} else {
 					candidates.add($cursor, num);
 				}
-				userGrid.set($cursor, 0);
+				userGrid.setCell($cursor, 0);
 			} else {
 				if ($candidates.hasOwnProperty($cursor.x + ',' + $cursor.y)) {
 					candidates.clear($cursor);
 				}
 
-				userGrid.set($cursor, num);
+				userGrid.setCell($cursor, num);
 			}
 		}
 	}
@@ -74,7 +74,7 @@
 	}
 </script>
 
-<svelte:window on:keydown={handleKey} /><!--on:beforeunload|preventDefault={e => e.returnValue = ''} />-->
+<svelte:window on:keydown={handleKey} />
 
 <div class="keyboard-grid">
 
