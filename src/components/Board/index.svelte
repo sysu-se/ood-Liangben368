@@ -5,6 +5,7 @@
 	import { settings } from '@sudoku/stores/settings';
 	import { cursor } from '@sudoku/stores/cursor';
 	import { candidates } from '@sudoku/stores/candidates';
+	import { explore } from '@sudoku/stores/explore'; <!-- 新增：导入探索状态 -->
 	import Cell from './Cell.svelte';
 
 	function isSelected(cursorStore, x, y) {
@@ -35,7 +36,12 @@
 	</div>
 	<div class="board-padding absolute inset-0 flex justify-center">
 
-		<div class="bg-white shadow-2xl rounded-xl overflow-hidden w-full h-full max-w-xl grid" class:bg-gray-200={$gamePaused}>
+		<!-- 修改：添加探索模式的边框效果 -->
+		<div class="bg-white shadow-2xl rounded-xl overflow-hidden w-full h-full max-w-xl grid" 
+		     class:bg-gray-200={$gamePaused}
+		     class:border-4={$explore.isExploring}
+		     class:border-yellow-500={$explore.isExploring && !$explore.hasConflict}
+		     class:border-red-500={$explore.isExploring && $explore.hasConflict}>
 
 			{#each $userGrid as row, y}
 				{#each row as value, x}
